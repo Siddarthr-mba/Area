@@ -1,7 +1,5 @@
 
-
 from abc import abstractmethod
-
 
 class Shape:
     __type = ''   # The double underscore '__' defines a private member which an object cannot touch
@@ -25,26 +23,33 @@ class Shape:
             return
         return ('This is a '+args[0]+' with area '+args[1])
 
-
 class Circle(Shape):
-    Radius = 0
+    Radius:int = 0
 
-    def __init__(self, radius):
+    def __init__(self, *args):
         super().__init__()
         # Tip: Initialize your 'must-have' attributes as part of constructor always to enforce the requirement.
-        self.Radius = radius
+        args:list = list(args)
+        self.Radius = args[0]
 
     def getArea(self):
-        return 3.14 * (pow(self.Radius, 2))
+        return 3.14 * self.Radius*self.Radius
     
 class Rectangle(Shape):
-    Length=0
-    Breadth=0
+    Length:int=0
+    Breadth:int=0
     
-    def __init__(self,Length:int,Breadth:int):
+    
+    def __init__(self,*args):
         super().__init__()
-        self.Length=Length
-        self.Breadth=Breadth
+        args = list(args)
+        self.Length = args[0]
+        self.Breadth= args[1]
+
+    # def __init__(self,Length:int,Breadth:int):
+    #     super().__init__()
+    #     self.Length=Length
+    #     self.Breadth=Breadth
         
     def getArea(self):
         return self.Length*self.Breadth
