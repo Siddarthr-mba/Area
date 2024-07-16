@@ -27,10 +27,10 @@ def GetUserInputs():
         # st.write(f"Area of Circle :blue {AreaOfRectangle}]")
     shape:Shape= globals()[ShapeName](*args)
     st.write("Area of " +ShapeName+" is "+str(shape.getArea()))
-    GetArea()
+ #   GetArea()
 
-def GetArea():
-    CalculateArea=st.button("GetArea")
+#def GetArea():
+#    CalculateArea=st.button("GetArea")
        
 if __name__=="__main__":
     st.set_page_config(page_title="APP TO CALCULATE AREA", 
