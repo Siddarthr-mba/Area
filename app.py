@@ -26,9 +26,7 @@ def GetUserInputs():
         shape = Rectangle(Length, Breadth)
         area = shape.getArea()
         st.write(f"Area of Rectangle is {area}")
-       
-       
-            
+                         
 if __name__=="__main__":
     st.set_page_config(page_title="APP TO CALCULATE AREA", 
                        page_icon=None, 
