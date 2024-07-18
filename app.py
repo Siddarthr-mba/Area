@@ -15,18 +15,27 @@ def GetUserInputs():
 
     if ShapeName == "Circle":
         Radius=st.number_input("Radius in cm (integer)", value=0, step=1)
-        args:list[int]=[Radius]
+        shape=Circle(Radius)
+        area=shape.getArea()
+        st.write(f"Area of Circle is {area}")
+        
+        #args:list[int]=[Radius]
         # shape:Shape= globals()[ShapeName]()
         # AreaOfCircle=Shape.Circle.get(Radius)
         # st.write(f"Area of Circle :blue {AreaOfCircle}]")
     else:
         Length=st.number_input("Length in cm (integer)", value=0, step=1)
         Breadth=st.number_input("Breadth in cm (integer)", value=0, step=1)
-        args:list[int] = [Length,Breadth]
+        shape = Rectangle(Length, Breadth)
+        area = shape.getArea()
+        st.write(f"Area of Rectangle is {area}")
+       
+             
+        #args:list[int] = [Length,Breadth]
         # AreaOfRectangle=Shape.Rectangle(Length,Breadth)
         # st.write(f"Area of Circle :blue {AreaOfRectangle}]")
-    shape:Shape= globals()[ShapeName](*args)
-    st.write("Area of " +ShapeName+" is "+str(shape.getArea()))
+    #shape:Shape= globals()[ShapeName](*args)
+    #st.write("Area of " +ShapeName+" is "+str(shape.getArea()))
  #   GetArea()
 
 #def GetArea():
