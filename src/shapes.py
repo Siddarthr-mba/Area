@@ -1,4 +1,3 @@
-
 from abc import abstractmethod
 
 class Shape:
@@ -16,13 +15,7 @@ class Shape:
     # Tip: have a def to access a private member/attribute
     def getType(self):
         return self.__type
-
-    def whoAmI(self, args=[]):    # args is an optional parameter which is assigned a default value
-        # return ('This is a {0} with area {1}'.format(args[0],args[1])) # Tip: This line is equal to the line below
-        if args == []:
-            return
-        return ('This is a '+args[0]+' with area '+args[1])
-
+   
 class Circle(Shape):
     Radius:int = 0
 
@@ -33,27 +26,22 @@ class Circle(Shape):
         self.Radius = args[0]
 
     def getArea(self):
-        return 3.14 * self.Radius*self.Radius
+        return 3.14 * self.Radius * self.Radius
     
 class Rectangle(Shape):
     Length:int=0
     Breadth:int=0
-    
-    
+        
     def __init__(self,*args):
         super().__init__()
         args = list(args)
         self.Length = args[0]
         self.Breadth= args[1]
-
-    # def __init__(self,Length:int,Breadth:int):
-    #     super().__init__()
-    #     self.Length=Length
-    #     self.Breadth=Breadth
-        
+     
     def getArea(self):
-        return self.Length*self.Breadth
-    
+        return self.Length * self.Breadth
+
+#Trial for students
 #class Trapezium(Shape):
 
  #   def __init__(self):
