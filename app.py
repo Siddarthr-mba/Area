@@ -18,8 +18,7 @@ def GetUserInputs():
         shape=Circle(Radius)
         area=shape.getArea()
         st.write(f"Area of Circle is {area}")
-        
-       
+               
     else:
         Length=st.number_input("Length in cm (integer)", value=0, step=1)
         Breadth=st.number_input("Breadth in cm (integer)", value=0, step=1)
