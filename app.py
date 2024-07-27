@@ -1,33 +1,25 @@
-
 import streamlit as st
-import numpy as np
-import sys,os
-from src.shapes import *
+import math
 
-#Add the path to the src directory
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+# Title of the app
+st.title("Shape Area Calculator")
 
-def GetUserInputs():
-    drop_down_col, _= st.columns(2)
+# Dropdown to select the shape
+shape = st.selectbox("Select the shape:", ["Circle", "Rectangle"])
 
-    with drop_down_col:
-        ShapeName=st.selectbox("Select Shape",["Circle","Rectangle"],index=0)
+# Input fields based on the selected shape
+if shape == "Circle":
+    radius = st.number_input("Enter the radius of the circle:", min_value=0.0, step=0.1)
+elif shape == "Rectangle":
+    length = st.number_input("Enter the length of the rectangle:", min_value=0.0, step=0.1)
+    breadth = st.number_input("Enter the breadth of the rectangle:", min_value=0.0, step=0.1)
 
-    if ShapeName == "Circle":
-        Radius=st.number_input("Radius in cm (integer)", value=0, step=1)
-        shape=Circle(Radius)
-        area=shape.getArea()
-        st.write(f"Area of Circle is {area}")
-               
-    else:
-        Length=st.number_input("Length in cm (integer)", value=0, step=1)
-        Breadth=st.number_input("Breadth in cm (integer)", value=0, step=1)
-        shape = Rectangle(Length, Breadth)
-        area = shape.getArea()
-        st.write(f"Area of Rectangle is {area}")
-                         
-if __name__=="__main__":
-    st.set_page_config(page_title="APP TO CALCULATE AREA", 
-                       page_icon=None, 
-                       layout="centered")
-    GetUserInputs()
+# Calculate button
+if st.button("Calculate"):
+    if shape == "Circle":
+        area = math.pi * (radius ** 2)
+        st.write(f"The area of the circle with radius {radius} is {area:.2f}")
+    elif shape == "Rectangle":
+        area = length * breadth
+        st.write(f"The area of the rectangle with length {length} and breadth {breadth} is {area:.2f}")
+
